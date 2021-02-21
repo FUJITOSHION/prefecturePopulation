@@ -4,7 +4,7 @@ import type { Prefecture } from "../types";
 
 type PrefectureCheckProps = {
   prefecture: Prefecture;
-  onChange: (isActive: boolean, code: number) => void;
+  onChange: (isActive: boolean, prefecture: Prefecture) => void;
 };
 
 export const PrefectureCheck: React.FC<PrefectureCheckProps> = ({
@@ -17,7 +17,7 @@ export const PrefectureCheck: React.FC<PrefectureCheckProps> = ({
     const nextState = !isActive;
 
     setIsActive(nextState);
-    onChange(nextState, prefecture.code);
+    onChange(nextState, prefecture);
   };
 
   return (
