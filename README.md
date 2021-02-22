@@ -18,6 +18,7 @@ v15.3.0
 ``` bash
 $ yarn install
 ```
+
 環境変数をコピーします。
 
 ``` bash
@@ -33,15 +34,43 @@ REACT_APP_RESAS_API_KEI="Your RESAS api key here"
 以上で環境構築は完了なので、開発サーバーを立てます。
 
 ``` bash
-yarn start
+$ yarn start
 ```
 
-4.linterとprettierとeslint cliにもせってい
-5.build
-  - netlifyにdeply
-  - master更新の旅に
+## linter
 
+このプロジェクトではeslintとprettierとstylelintを導入しています。
 
-git filter-branch --force --index-filter \
-  "git rm --cached --ignore-unmatch src/api/index.ts" \
-  --prune-empty --tag-name-filter cat -- --all
+CLIから以下のように使用します。
+
+``` bash
+$ yarn lint
+yarn run v1.22.10
+$ yarn typecheck && run-p lint:*
+$ tsc -p . --noEmit
+$ eslint src --ext .ts,.tsx,.jsx
+$ stylelint 'src/**/*.css'
+✨  Done in 8.78s.
+```
+
+自動修正は以下のようにします。
+
+``` bash
+$ yarn fix
+yarn run v1.22.10
+$ run-p fix:*
+$ prettier '**/*.{ts,tsx,js,jsx,json,css}' --write
+$ yarn lint:eslint --fix
+$ yarn lint:stylelint --fix
+$ eslint src --ext .ts,.tsx,.jsx --fix
+$ stylelint 'src/**/*.css' --fix
+...
+✨  Done in 7.60s.
+```
+
+# 本番環境
+
+netlifyを使用してデプロイしています。-> [人口推移アプリ](https://poplulation-prefecture.netlify.app/)
+
+master更新のたびに自動で更新されます。
+
