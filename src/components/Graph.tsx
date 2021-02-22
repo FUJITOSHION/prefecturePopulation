@@ -69,10 +69,6 @@ export const Graph: React.FC<GraphProps> = ({ prefectures }: GraphProps) => {
   return (
     <div>
       <ul>
-        {prefectures.map((prefecture) => (
-          <li key={prefecture.code}>{prefecture.name}</li>
-        ))}
-
         <LineChart
           width={500}
           height={300}

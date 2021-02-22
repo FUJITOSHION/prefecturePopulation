@@ -40,9 +40,9 @@ function App(): JSX.Element {
 
   return (
     <div>
-      <ul style={{ display: "flex" }}>
+      <ul className="display-prefectures">
         {prefectures.map((pref) => (
-          <li key={pref.code}>
+          <li key={pref.code} className="prefecture-block">
             <PrefectureCheck prefecture={pref} onChange={handleChange} />
           </li>
         ))}

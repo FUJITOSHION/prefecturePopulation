@@ -22,8 +22,8 @@ export const PrefectureCheck: React.FC<PrefectureCheckProps> = ({
 
   return (
     <label>
-      {prefecture.name}
       <input type="checkbox" checked={isActive} onChange={handleChange} />
+      {prefecture.name}
     </label>
   );
 };
