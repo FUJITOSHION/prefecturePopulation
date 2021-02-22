@@ -71,8 +71,8 @@ export const Graph: React.FC<GraphProps> = ({ prefectures }: GraphProps) => {
     <div className="graph-style">
       <ResponsiveContainer>
         <LineChart
-          width={500}
-          height={300}
+          width={600}
+          height={400}
           data={graphData}
           margin={{
             top: 5,
