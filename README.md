@@ -18,15 +18,30 @@ v15.3.0
 ``` bash
 $ yarn install
 ```
+環境変数をコピーします。
 
+``` bash
+$ cp .env.sample .env
+```
 
-  - copy .env.sample .env
-  - api等
-    - https://opendata.resas-portal.go.jp/
-    api key を取得し、.envを構築
+[RESAS](https://opendata.resas-portal.go.jp/) から取得したAPI KEYを.envを上書きします。
 
-  - yarn start
+``` env
+REACT_APP_RESAS_API_KEI="Your RESAS api key here"
+```
+
+以上で環境構築は完了なので、開発サーバーを立てます。
+
+``` bash
+yarn start
+```
+
 4.linterとprettierとeslint cliにもせってい
 5.build
   - netlifyにdeply
   - master更新の旅に
+
+
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch src/api/index.ts" \
+  --prune-empty --tag-name-filter cat -- --all
