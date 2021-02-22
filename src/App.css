@@ -58,3 +58,11 @@ ul {
   margin: 1%;
   width: 85px;
 }
+
+.graph-style {
+  max-width: 500px;
+  height: 300px;
+}
+.graph-area {
+  width: 100%;
+}

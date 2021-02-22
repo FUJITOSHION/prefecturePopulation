@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 type GraphProps = {
@@ -67,8 +68,8 @@ export const Graph: React.FC<GraphProps> = ({ prefectures }: GraphProps) => {
   const graphData = convertChartData(activeData);
 
   return (
-    <div>
-      <ul>
+    <div className="graph-style">
+      <ResponsiveContainer>
         <LineChart
           width={500}
           height={300}
@@ -94,7 +95,7 @@ export const Graph: React.FC<GraphProps> = ({ prefectures }: GraphProps) => {
             />
           ))}
         </LineChart>
-      </ul>
+      </ResponsiveContainer>
     </div>
   );
 };
